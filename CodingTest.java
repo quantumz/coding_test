@@ -18,7 +18,7 @@ public class CodingTest {
         @return true if key string and data string match
      */
     public static boolean isMatch(String keys, String values) {
-        HashMap matchMap = new HashMap<>();
+        HashMap<Character, String> matchMap = new HashMap<>();
         String[] explodedValues = values.split(" "); 
 
         if (keys.length() != explodedValues.length)
@@ -27,16 +27,17 @@ public class CodingTest {
         for (int i = 0; i < keys.length(); i++) {
 
             char key = keys.charAt(i);
+            String value = explodedValues[i];
 
             if(!matchMap.containsKey(key)) {
-                if(matchMap.containsValue(explodedValues[i])) {
+                if(matchMap.containsValue(value)) {
                     return false;
                 }
                 else {
-                    matchMap.put(key, explodedValues[i]);
+                    matchMap.put(key, value);
                 }
             }
-            else if(!(matchMap.get(key)).equals(explodedValues[i]))  {
+            else if(!(matchMap.get(key)).equals(value))  {
                 return false;
             }
         }
