@@ -30,9 +30,12 @@ public class CodingTest {
         return true;
     }
 
+    /** 
+        Example usage: `java CodingTest ABBA "CAT DOG DOG CAT"
+     */
     public static void main(String[] args) {
-        String keys = new String("ABBA");
-        String values = new String("CAT DOG DOG CAT");
+        String keys = args[0];
+        String values = args[1];
 
         boolean result = isMatch(keys, values);
         System.out.println(result);
